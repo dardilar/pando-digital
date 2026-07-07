@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
 ---
 
 <BaseLayout
@@ -8,10 +9,9 @@ import Header from '../components/Header.astro';
   description="Sitios web modernos y automatización para emprendimientos y negocios locales. Sin tecnicismos, sin complicaciones, y con alguien real al otro lado."
 >
   <Header />
-  <!-- Placeholder temporal: aquí irán las demás secciones (Hero, About…) -->
-  <main style="padding: 48px var(--pad-x); max-width: var(--max-width); margin: 0 auto;">
-    <h1 style="font-family: var(--font-display); color: var(--secondary);">Pando Digital</h1>
-    <p style="color: var(--ink-soft);">Base del proyecto funcionando ✓ — terracota <span style="color: var(--accent); font-weight: 700;">■</span> verde <span style="color: var(--secondary); font-weight: 700;">■</span> sobre crema.</p>
+  <main>
+    <Hero />
+    <!-- Próximas secciones: About, Services, Portfolio, FAQ, Contact -->
   </main>
 </BaseLayout>
 

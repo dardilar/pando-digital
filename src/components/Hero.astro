@@ -1,0 +1,166 @@
+---
+import HeroAnimation from './HeroAnimation.astro';
+
+const checks = [
+  'Sin atarte a un plan mensual',
+  'Tu sitio y tus cuentas son tuyos',
+  'Te explicamos todo en palabras simples',
+];
+---
+
+<section id="top">
+  <div class="text">
+    <div class="eyebrow">
+      <span class="dash"></span>Hecho para emprendimientos y negocios locales
+    </div>
+
+    <h1>Tu negocio en línea, sin líos técnicos.</h1>
+
+    <div class="intro">
+      <p>
+        Creamos sitios web modernos y con vida para negocios locales, y dejamos listas las
+        herramientas que te ayudan a ahorrar tiempo cada semana.
+      </p>
+      <p>Sin tecnicismos. Sin complicaciones. Y con alguien real al otro lado.</p>
+    </div>
+
+    <div class="ctas">
+      <a href="#contact" class="primary">Pon tu negocio en línea</a>
+      <a href="#services" class="secondary">¿Cómo funciona?</a>
+    </div>
+
+    <div class="checks">
+      {
+        checks.map((check) => (
+          <span>
+            <b>✓</b>
+            {check}
+          </span>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="visual" aria-hidden="true">
+    <HeroAnimation />
+  </div>
+</section>
+
+<style>
+  section {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: clamp(48px, 7vw, 96px) var(--pad-x) clamp(40px, 6vw, 72px);
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(32px, 5vw, 64px);
+    align-items: center;
+  }
+
+  .text {
+    flex: 1 1 460px;
+    min-width: 300px;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--secondary);
+    font-weight: 600;
+    margin-bottom: 22px;
+  }
+
+  .dash {
+    width: 22px;
+    height: 1.5px;
+    background: var(--secondary);
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(38px, 6vw, 68px);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    margin: 0 0 22px;
+  }
+
+  .intro {
+    font-size: clamp(17px, 2.2vw, 20px);
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 30em;
+    margin: 0 0 34px;
+  }
+
+  .intro p {
+    margin: 0;
+  }
+
+  .intro p + p {
+    margin-top: 1em;
+  }
+
+  .ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .primary {
+    text-decoration: none;
+    background: var(--accent);
+    color: var(--cream);
+    font-weight: 700;
+    font-size: 16.5px;
+    padding: 16px 28px;
+    border-radius: 12px;
+    box-shadow: 0 8px 22px -8px rgba(232, 102, 61, 0.7);
+  }
+
+  .secondary {
+    text-decoration: none;
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 16px;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 2px;
+  }
+
+  .checks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 40px;
+    color: var(--ink-mute);
+    font-size: 14.5px;
+    font-weight: 500;
+  }
+
+  .checks span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .checks b {
+    color: var(--secondary);
+  }
+
+  .visual {
+    flex: 1 1 420px;
+    min-width: 300px;
+    align-self: center;
+    height: clamp(340px, 40vw, 480px);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
