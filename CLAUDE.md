@@ -57,9 +57,18 @@ en local:
 
 ### Pendiente
 
-10. ⬜ **Deploy a Vercel**: output estático (sin adapter). Configurar
-    `PUBLIC_WEB3FORMS_KEY` también en Vercel (`vercel env`). Preview primero,
-    producción cuando Duvan apruebe.
+10. ✅ **Deploy a Vercel** (2026-07-07): vivo en
+    **https://pando-digital.vercel.app** (proyecto
+    `dardilars-projects/pando-digital`, vinculado vía `vercel link`).
+    `PUBLIC_WEB3FORMS_KEY` configurada en Production y Preview; verificado
+    que la clave está en el bundle de producción (formulario en modo real).
+    Nota: se lanzó como preview pero Vercel promueve a producción el primer
+    deploy de un proyecto nuevo — sin impacto (no había dominio ni usuarios).
+    Ojo tooling: el CLI global viejo (50.40, con bug en `env add`) sigue en
+    el PATH de Duvan; el nuevo (54.x) está en `~/.local/share/pnpm/bin/vercel`.
+    Tarea de Duvan: `pnpm setup` + reiniciar terminal. Sin remoto git aún —
+    los deploys son manuales por CLI; conectar GitHub sería el siguiente
+    paso natural para push-to-deploy.
 
 ### Backlog de mejoras (pedidas por Duvan el 2026-07-07)
 
