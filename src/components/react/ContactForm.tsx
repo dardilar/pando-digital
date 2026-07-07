@@ -129,7 +129,7 @@ export default function ContactForm() {
         <input
           value={name}
           onChange={field(setName)}
-          placeholder="Ana Bovier"
+          placeholder="Ana Restrepo"
         />
       </label>
 
@@ -138,7 +138,7 @@ export default function ContactForm() {
         <input
           value={business}
           onChange={field(setBusiness)}
-          placeholder="Compumundo Hypermegared"
+          placeholder="A&D Store"
         />
       </label>
 
@@ -148,7 +148,7 @@ export default function ContactForm() {
           type="email"
           value={email}
           onChange={field(setEmail)}
-          placeholder="ana@hypermegared.co"
+          placeholder="ana@adstore.com"
         />
       </label>
 
