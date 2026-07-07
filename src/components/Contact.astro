@@ -1,0 +1,105 @@
+---
+import ContactForm from './react/ContactForm.tsx';
+---
+
+<section id="contact">
+  <div class="info">
+    <div class="eyebrow">¿Tomamos un café?</div>
+    <h2>Queremos conocer tu negocio.</h2>
+    <p>
+      Cuéntanos qué haces, qué estás intentando mejorar y dónde necesitas ayuda. Te responderemos
+      personalmente en el siguiente día hábil con recomendaciones claras y honestas.
+    </p>
+    <div class="channels">
+      <span><b class="mail">✉</b> hola@pandodigital.co</span>
+      <span><b class="phone">☎</b> ¿Mejor por teléfono? Solicita una llamada abajo.</span>
+    </div>
+  </div>
+
+  <div class="form-col">
+    <!-- La isla: este componente React se hidrata apenas carga la página -->
+    <ContactForm client:load />
+  </div>
+</section>
+
+<style>
+  section {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: clamp(56px, 8vw, 120px) var(--pad-x);
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(32px, 5vw, 72px);
+  }
+
+  .info {
+    flex: 1 1 340px;
+    min-width: 280px;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--secondary);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(30px, 4.5vw, 50px);
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    margin: 0 0 20px;
+  }
+
+  .info > p {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    max-width: 34em;
+    margin: 0 0 28px;
+  }
+
+  .channels {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    font-size: 15.5px;
+    color: var(--ink-soft);
+  }
+
+  .channels span {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+  }
+
+  .channels b {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    flex: none;
+  }
+
+  .mail {
+    background: rgba(232, 102, 61, 0.12);
+    color: var(--accent);
+  }
+
+  .phone {
+    background: rgba(47, 93, 79, 0.12);
+    color: var(--secondary);
+  }
+
+  .form-col {
+    flex: 1 1 380px;
+    min-width: 290px;
+  }
+</style>
