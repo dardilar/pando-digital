@@ -26,9 +26,10 @@ principiante) y pidió explícitamente este formato:
   `~/.claude/plans/estoy-construyendo-el-sitio-magical-flute.md`.
 - Commits en español, con mensaje de qué se aprendió/construyó.
 
-## Estado (actualizado 2026-07-06)
+## Estado (actualizado 2026-07-07)
 
-Pasos 1–8 del plan **completos**. El sitio entero funciona en local:
+Pasos 1–9 del plan **completos**. El sitio entero funciona y está verificado
+en local:
 
 1. ✅ Base: scaffold, tokens, `BaseLayout.astro`, favicon (monograma).
 2. ✅ `Logo.astro` (props tipadas, escala por `size`) + `Header.astro` sticky.
@@ -47,12 +48,18 @@ Pasos 1–8 del plan **completos**. El sitio entero funciona en local:
    La clave vive en `.env` (`PUBLIC_WEB3FORMS_KEY`, ya configurada por Daniel;
    sin clave el form corre en modo simulado).
 
+9. ✅ **Verificación end-to-end** (2026-07-07): `astro check` y build limpios,
+   repaso visual contra el diseño, formulario real probado (errores + correo
+   recibido), `prefers-reduced-motion` OK. Se añadió **menú hamburguesa móvil**
+   en `Header.astro`: `<details>` como interruptor + selector de hermano
+   `.menu-toggle[open] + nav`, media query ≤720px, nav como panel `absolute`,
+   mini `<script>` que cierra el menú al hacer clic en un link.
+
 ### Pendiente
 
-9. ⬜ **Verificación end-to-end**: `pnpm build && pnpm preview`, repaso visual
-   contra el diseño (`pandodigital/Landing Page.dc.html` en el navegador),
-   prueba real del formulario (vacío → error, email malo → error, válido →
-   correo recibido), responsive móvil, `prefers-reduced-motion`.
+- ⬜ **Ajustes de contenido** que Daniel quiere hacer antes del deploy
+  (textos en `src/data/*.ts` y componentes de sección; pendiente que liste
+  cuáles).
 10. ⬜ **Deploy a Vercel**: output estático (sin adapter). Configurar
     `PUBLIC_WEB3FORMS_KEY` también en Vercel (`vercel env`). Preview primero,
     producción cuando Daniel apruebe.
@@ -67,15 +74,19 @@ mecanismo (`data-astro-cid`); por qué `is:global` para keyframes referenciados
 inline; `src/assets` vs `public/`; separar datos de presentación; render
 condicional `{cond && ...}` y `class:list`; `<details>/<summary>` antes que JS;
 islas e hidratación (`<astro-island>`, costo de React 184 KB); `useState` e
-inputs controlados; `e.preventDefault()`. Recién vistos (afianzar con
-preguntas si surge la ocasión): `async/await` + `fetch`, tipos unión para
-máquinas de estado, funciones que devuelven funciones (`field(setter)`),
-variables `PUBLIC_` en `.env`, honeypot.
+inputs controlados; `e.preventDefault()`; deshabilitar controles durante
+operaciones en vuelo (checkpoint del Paso 8 respondido bien: clics repetidos =
+fetches duplicados). Recién vistos (afianzar con preguntas si surge la
+ocasión): `async/await` + `fetch`, tipos unión para máquinas de estado,
+funciones que devuelven funciones (`field(setter)`), variables `PUBLIC_` en
+`.env` (y que se incrustan literalmente en el bundle), honeypot, media queries
+(`max-width`, `prefers-reduced-motion`), selector de hermano adyacente `+`,
+`<details>` como interruptor de estado para CSS, dev vs build de producción
+(verificar siempre sobre `pnpm preview`), caché del navegador / recarga dura
+(vivió un bug de CSS viejo en caché y lo resolvió con Ctrl+Shift+R).
 
-## Checkpoint pendiente de responder
+## Checkpoints
 
-Quedó abierta la pregunta del Paso 8: ¿qué pasaría sin
-`disabled={status === 'sending'}` si el visitante hace clic 3 veces con red
-lenta? (Respuesta esperada: envíos duplicados — cada clic dispararía otro
-`fetch`; el `disabled` corta el problema de raíz.) Retomarla al iniciar la
-próxima sesión antes de pasar al Paso 9.
+Ninguno pendiente. El del Paso 8 (envíos duplicados sin `disabled`) y el del
+menú móvil (qué pasaría sin `position: absolute` en el nav) fueron respondidos
+correctamente por Daniel el 2026-07-07.
