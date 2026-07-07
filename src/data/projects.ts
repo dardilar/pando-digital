@@ -11,16 +11,10 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    tag: 'Café',
+    tag: 'E-commerce',
     status: 'En línea',
-    name: 'Morning Light Coffee',
-    blurb: 'Sitio de una página con horarios, menú y botón de llamada directa. En línea en una semana.',
-  },
-  {
-    tag: 'Boutique',
-    status: 'En camino',
-    name: 'Thread & Fold',
-    blurb: 'Una pequeña tienda en línea para una boutique de barrio. Lanzamiento próximo.',
+    name: 'Pet & Paint',
+    blurb: 'Tienda en línea de productos para mascotas y pinturas artísticas.',
   },
   {
     tag: 'Tu negocio',

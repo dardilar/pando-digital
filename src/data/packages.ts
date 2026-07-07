@@ -19,7 +19,7 @@ export const packages: ServicePackage[] = [
     tag: 'Para estar en línea',
     description:
       'Una web clara, rápida y profesional para presentar tu negocio, mostrar lo que ofreces y facilitar que tus clientes te contacten. Con detalles modernos y con vida, no una página estática de las de siempre. Se ve bien en el celular, aparece en Google, y le quita presión a tu bandeja de entrada.',
-    price: '$700.000 – $900.000 COP',
+    price: '$800.000 – $1.000.000 COP',
     showFrom: true,
     featured: false,
   },
