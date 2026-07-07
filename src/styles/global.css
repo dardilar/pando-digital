@@ -1,0 +1,54 @@
+/* ============================================================
+   Tokens de diseño de Pando Digital
+   Una sola fuente de verdad para colores y tipografía.
+   Los componentes usan var(--accent) en vez de #E8663D:
+   si un día cambias la marca, la cambias aquí y en ningún otro lado.
+   ============================================================ */
+:root {
+  /* Colores de marca */
+  --accent: #e8663d; /* terracota — CTAs, énfasis */
+  --secondary: #2f5d4f; /* verde — logo, sección "sobre mí" */
+  --cream: #fffbf5; /* fondo principal */
+  --ink: #1c1b1a; /* texto principal */
+  --ink-soft: #4a4744; /* texto secundario */
+  --ink-faint: #8a8378; /* texto terciario / metadatos */
+  --stone: #b8afa3; /* bordes, separadores */
+  --sand: #f4eee4; /* fondo alterno (portafolio) */
+
+  /* Tipografía */
+  --font-display: 'Zilla Slab', serif; /* títulos */
+  --font-body: 'Mulish', system-ui, sans-serif; /* texto */
+  --font-mono: ui-monospace, 'SF Mono', Menlo, monospace; /* etiquetas */
+
+  /* Medidas repetidas en el diseño */
+  --max-width: 1180px;
+  --pad-x: clamp(20px, 5vw, 56px);
+}
+
+/* Reset mínimo (tomado del export del diseño) */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--cream);
+}
+
+input,
+textarea,
+button {
+  font-family: inherit;
+}

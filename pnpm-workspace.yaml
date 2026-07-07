@@ -1,0 +1,6 @@
+# Dependencias autorizadas a ejecutar sus scripts de instalación.
+# pnpm los bloquea por defecto (seguridad): un script de instalación puede
+# ejecutar código arbitrario, así que se aprueba dependencia por dependencia.
+allowBuilds:
+  esbuild: true # compilador que usa Astro/Vite; su script descarga el binario
+  sharp: true # optimizador de imágenes que usará astro:assets

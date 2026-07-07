@@ -1,0 +1,17 @@
+# dependencias
+node_modules/
+
+# salida del build
+dist/
+# archivos internos que Astro genera (tipos, caché)
+.astro/
+
+# variables de entorno (secretos — nunca al repo)
+.env
+.env.*
+
+# Vercel
+.vercel/
+
+# sistema operativo / editor
+.DS_Store
