@@ -1,0 +1,49 @@
+---
+import Logo from './Logo.astro';
+
+const year = new Date().getFullYear(); // se calcula en cada build
+---
+
+<footer>
+  <div class="inner">
+    <div class="brand">
+      <Logo size={32} />
+      <span class="wordmark">Pando Digital</span>
+    </div>
+    <span class="note">Sitios web y automatización para negocios locales. © {year}</span>
+  </div>
+</footer>
+
+<style>
+  footer {
+    border-top: 1px solid rgba(184, 175, 163, 0.4);
+  }
+
+  .inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 32px var(--pad-x);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .wordmark {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  .note {
+    font-size: 13.5px;
+    color: var(--ink-faint);
+  }
+</style>
