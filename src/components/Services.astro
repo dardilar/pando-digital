@@ -1,0 +1,192 @@
+---
+import { packages } from '../data/packages';
+---
+
+<section id="services">
+  <div class="heading">
+    <div class="eyebrow">Elige cómo podemos ayudarte</div>
+    <h2>Tres paquetes. Elige el que mejor se adapta a tu negocio.</h2>
+    <p>
+      No tienes que empezar desde cero ni seguir un orden específico. Tal vez necesitas una web
+      clara y funcional, o tal vez ya tienes una y solo quieres automatizar procesos o sumar
+      herramientas de IA. Elige el paquete que más sentido tenga para tu negocio hoy, y avanzamos
+      desde ahí.
+    </p>
+  </div>
+
+  <div class="ladder">
+    {
+      packages.map((pkg) => (
+        <div class="step">
+          <span class="number">{pkg.number}</span>
+          <div class:list={['card', { featured: pkg.featured }]}>
+            <div class="card-head">
+              <h3>{pkg.title}</h3>
+              <span class="tag">{pkg.tag}</span>
+            </div>
+            <p class="description">{pkg.description}</p>
+            <div class="price-row">
+              {pkg.showFrom && <span class="from">Desde</span>}
+              <span class="price">{pkg.price}</span>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  section {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: clamp(56px, 8vw, 120px) var(--pad-x);
+  }
+
+  .heading {
+    max-width: 640px;
+    margin-bottom: clamp(40px, 5vw, 64px);
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--secondary);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(30px, 4.5vw, 50px);
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+    margin: 0 0 16px;
+  }
+
+  .heading p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .ladder {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(20px, 3vw, 36px);
+  }
+
+  .step {
+    display: flex;
+    gap: clamp(20px, 3.5vw, 44px);
+    align-items: flex-start;
+  }
+
+  .number {
+    flex: none;
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(56px, 9vw, 96px);
+    line-height: 0.8;
+    color: var(--accent);
+    padding: 6px 0;
+  }
+
+  .card {
+    flex: 1 1 auto;
+    background: #fff;
+    border: 1px solid rgba(184, 175, 163, 0.5);
+    border-radius: 16px;
+    padding: clamp(24px, 3vw, 36px);
+    box-shadow: 0 2px 0 rgba(184, 175, 163, 0.25);
+  }
+
+  .card-head {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(23px, 2.8vw, 30px);
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--secondary);
+    background: rgba(47, 93, 79, 0.09);
+    padding: 5px 11px;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+
+  .description {
+    font-size: 16.5px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin: 0 0 20px;
+  }
+
+  .price-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px 12px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(184, 175, 163, 0.45);
+  }
+
+  .from {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 600;
+  }
+
+  .price {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--accent);
+  }
+
+  /* Variante destacada: la tarjeta verde invertida (Automatización e IA) */
+  .card.featured {
+    background: var(--secondary);
+    color: var(--cream);
+    border: none;
+    box-shadow: 0 12px 30px -18px rgba(47, 93, 79, 0.9);
+  }
+
+  .card.featured .tag {
+    color: var(--cream);
+    background: rgba(255, 251, 245, 0.16);
+  }
+
+  .card.featured .description {
+    color: rgba(255, 251, 245, 0.9);
+  }
+
+  .card.featured .price-row {
+    border-top-color: rgba(255, 251, 245, 0.22);
+  }
+
+  .card.featured .price {
+    color: var(--cream);
+  }
+</style>
