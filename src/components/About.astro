@@ -1,0 +1,146 @@
+---
+import { Image } from 'astro:assets';
+import Logo from './Logo.astro';
+import fotoPando from '../assets/foto-pando.png';
+---
+
+<section id="about">
+  <div class="inner">
+    <div class="photo-col">
+      <div class="polaroid">
+        <div class="frame">
+          <Image
+            src={fotoPando}
+            alt="Foto de Pando Digital"
+            width={640}
+            class="photo"
+          />
+        </div>
+        <div class="caption">
+          <Logo size={30} />
+          <span class="wordmark">
+            <span>Pando</span>
+            <span>Digital</span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="text">
+      <div class="eyebrow">Conoce a la persona detrás de Pando</div>
+      <h2>A propósito, nos especializamos en negocios locales.</h2>
+      <p>
+        Las agencias grandes están hechas para presupuestos grandes. Empecé Pando Digital pensando
+        en el emprendedor y el negocio de barrio, alguien que quiere verse profesional y crecer en
+        línea, dejando la parte técnica en buenas manos.
+      </p>
+      <p>
+        Trabajas conmigo directamente, te explico cada paso en palabras simples y sigo ahí cuando
+        necesites hacer un cambio más adelante.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    background: var(--secondary);
+    color: var(--cream);
+  }
+
+  .inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: clamp(56px, 7vw, 104px) var(--pad-x);
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(32px, 5vw, 72px);
+    align-items: center;
+  }
+
+  .photo-col {
+    flex: 0 1 340px;
+    min-width: 260px;
+    display: flex;
+    justify-content: center;
+    padding: 14px 0;
+  }
+
+  .polaroid {
+    background: var(--cream);
+    border-radius: 20px;
+    padding: 16px 16px 14px;
+    box-shadow: 0 30px 60px -26px rgba(0, 0, 0, 0.55);
+    transform: rotate(-2.4deg);
+    max-width: 320px;
+    width: 100%;
+  }
+
+  .frame {
+    aspect-ratio: 4 / 5;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #e8e2d8;
+  }
+
+  .photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 65% center;
+    display: block;
+  }
+
+  .caption {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 13px 4px 3px;
+  }
+
+  .wordmark {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.05;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .text {
+    flex: 1 1 420px;
+    min-width: 300px;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(28px, 3.8vw, 42px);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    margin: 0 0 22px;
+  }
+
+  p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgba(255, 251, 245, 0.88);
+    margin: 0 0 18px;
+    max-width: 40em;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+</style>
