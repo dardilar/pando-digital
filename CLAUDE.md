@@ -1,7 +1,7 @@
-# Pando Digital — sitio web de la consultoría de Daniel
+# Pando Digital — sitio web de la consultoría de Duvan
 
 Landing page en Astro portada desde un diseño de Claude Design. **Es también una
-sesión de tutoría**: Daniel está aprendiendo (JS moderado; React/Astro/TS
+sesión de tutoría**: Duvan está aprendiendo (JS moderado; React/Astro/TS
 principiante) y pidió explícitamente este formato:
 
 > **Concepto primero → código después → checkpoint de comprensión antes de
@@ -45,7 +45,7 @@ en local:
 7. ✅ Isla React v1: `useState`, inputs controlados, `client:load`.
 8. ✅ Formulario v2: validación con mensajes en español, máquina de estados
    `idle → sending → success`, `fetch` a Web3Forms, honeypot `botcheck`.
-   La clave vive en `.env` (`PUBLIC_WEB3FORMS_KEY`, ya configurada por Daniel;
+   La clave vive en `.env` (`PUBLIC_WEB3FORMS_KEY`, ya configurada por Duvan;
    sin clave el form corre en modo simulado).
 
 9. ✅ **Verificación end-to-end** (2026-07-07): `astro check` y build limpios,
@@ -57,16 +57,27 @@ en local:
 
 ### Pendiente
 
-- ⬜ **Ajustes de contenido** que Daniel quiere hacer antes del deploy
-  (textos en `src/data/*.ts` y componentes de sección; pendiente que liste
-  cuáles).
 10. ⬜ **Deploy a Vercel**: output estático (sin adapter). Configurar
     `PUBLIC_WEB3FORMS_KEY` también en Vercel (`vercel env`). Preview primero,
-    producción cuando Daniel apruebe.
+    producción cuando Duvan apruebe.
+
+### Backlog de mejoras (pedidas por Duvan el 2026-07-07)
+
+- ✅ **Botón flotante de WhatsApp** (`WhatsAppButton.astro`, 2026-07-07):
+  `wa.me` con mensaje pre-llenado, `position: fixed`, número real puesto por
+  Duvan, 46px en móvil (mínimo táctil WCAG 44px).
+- ✅ **Animación del FAQ** (2026-07-07): `interpolate-size: allow-keywords` +
+  transición en `::details-content`, mejora progresiva (Firefox abre sin
+  animar), desactivada bajo `prefers-reduced-motion`.
+- ⬜ **i18n inglés**. Astro i18n routing (`/en/`), extraer textos a
+  diccionarios. Ojo: un sitio 100% estático no puede detectar el país en el
+  servidor; opciones a decidir: idioma del navegador con aviso/redirect,
+  selector manual, o middleware de Vercel. Es la mejora grande — planearla
+  en su propia sesión.
 - ⬜ Futuro: imágenes reales del portafolio (entran por `src/data/projects.ts`
   + `astro:assets`), dominio pandodigital.co, correo hola@pandodigital.co.
 
-## Conceptos que Daniel ya dominó (no re-explicar desde cero)
+## Conceptos que Duvan ya dominó (no re-explicar desde cero)
 
 Build vs navegador (frontmatter vs `<script>` — le costó 2 intentos, ya lo
 tiene sólido); tokens CSS; props tipadas + interfaces; estilos scoped y su
@@ -89,4 +100,4 @@ funciones que devuelven funciones (`field(setter)`), variables `PUBLIC_` en
 
 Ninguno pendiente. El del Paso 8 (envíos duplicados sin `disabled`) y el del
 menú móvil (qué pasaría sin `position: absolute` en el nav) fueron respondidos
-correctamente por Daniel el 2026-07-07.
+correctamente por Duvan el 2026-07-07.

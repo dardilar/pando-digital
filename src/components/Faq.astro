@@ -136,4 +136,28 @@ import { faqs } from '../data/faqs';
     line-height: 1.65;
     color: var(--ink-soft);
   }
+
+  /* Apertura/cierre animado — mejora progresiva (CSS 2024+):
+     navegadores sin soporte abren de golpe, como antes. */
+  details {
+    interpolate-size: allow-keywords;
+  }
+
+  details::details-content {
+    height: 0;
+    overflow: clip;
+    transition:
+      height 0.3s ease,
+      content-visibility 0.3s allow-discrete;
+  }
+
+  details[open]::details-content {
+    height: auto;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    details::details-content {
+      transition: none;
+    }
+  }
 </style>
