@@ -2,7 +2,7 @@
 // Los componentes React no tienen el <style> scoped de Astro, así que los
 // estilos viven en un CSS aparte que se importa aquí:
 import './ContactForm.css';
-import { useState, type FormEvent } from 'react';
+import { useState, type SubmitEvent } from 'react';
 
 export default function ContactForm() {
   // Cada useState es un par [valor, función-para-cambiarlo].
@@ -14,7 +14,7 @@ export default function ContactForm() {
   const [message, setMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
-  function handleSubmit(e: FormEvent) {
+  function handleSubmit(e: SubmitEvent<HTMLFormElement>) {
     // Sin esto, el navegador recargaría la página al enviar (comportamiento
     // por defecto de <form>). Queremos manejarlo nosotros.
     e.preventDefault();
