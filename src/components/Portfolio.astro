@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { projects } from '../data/projects';
 ---
 
@@ -15,9 +16,13 @@ import { projects } from '../data/projects';
     <div class="grid">
       {
         projects.map((project) => (
-          <article class="card">
+          <article class:list={['card', { linked: !!project.url }]}>
             <div class="thumb">
-              <span>imagen del proyecto</span>
+              {project.image ? (
+                <Image src={project.image} alt={project.imageAlt ?? project.name} widths={[400, 800]} sizes="(max-width: 640px) 100vw, 400px" />
+              ) : (
+                <span>Reservado para ti</span>
+              )}
             </div>
             <div class="body">
               <div class="meta">
@@ -27,6 +32,11 @@ import { projects } from '../data/projects';
               </div>
               <h3>{project.name}</h3>
               <p>{project.blurb}</p>
+              {project.url && (
+                <a class="visit" href={project.url} target="_blank" rel="noopener noreferrer">
+                  Ver sitio ↗
+                </a>
+              )}
             </div>
           </article>
         ))
@@ -99,6 +109,30 @@ import { projects } from '../data/projects';
     flex-direction: column;
   }
 
+  .card.linked {
+    position: relative;
+    transition:
+      transform 0.18s ease,
+      box-shadow 0.18s ease,
+      border-color 0.18s ease;
+  }
+
+  .card.linked:hover,
+  .card.linked:focus-within {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(46, 42, 36, 0.1);
+    border-color: var(--stone);
+  }
+
+  .card.linked:hover .visit,
+  .card.linked:focus-within .visit {
+    color: var(--accent);
+  }
+
+  .card.linked:hover .thumb img {
+    transform: scale(1.03);
+  }
+
   /* Placeholder rayado mientras no hay imagen real del proyecto */
   .thumb {
     aspect-ratio: 16 / 11;
@@ -110,6 +144,15 @@ import { projects } from '../data/projects';
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    transition: transform 0.3s ease;
   }
 
   .thumb span {
@@ -163,5 +206,22 @@ import { projects } from '../data/projects';
     line-height: 1.55;
     color: var(--ink-mute);
     margin: 0;
+  }
+
+  .visit {
+    display: inline-block;
+    margin-top: 12px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink-faint);
+    text-decoration: none;
+    transition: color 0.18s ease;
+  }
+
+  .visit::after {
+    content: '';
+    position: absolute;
+    inset: 0;
   }
 </style>
