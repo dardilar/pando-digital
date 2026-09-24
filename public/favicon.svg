@@ -1,12 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <title>Pando Digital</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Pando Digital">
   <rect width="64" height="64" rx="14" fill="#2F5D4F"/>
-  <!-- Monograma: la "P" con raíces, en crema sobre el chip verde -->
-  <g transform="translate(32 32) scale(0.32) translate(-11 -67)" fill="none" stroke="#FFFBF5" stroke-linecap="round">
-    <path d="M0 0 L0 130" stroke-width="14"/>
-    <path d="M0 0 Q56 0, 56 34 Q56 68, 0 68" stroke-width="14"/>
-    <path d="M0 96 C-20 106, -32 118, -38 132" stroke-width="6"/>
-    <path d="M0 100 C0 112, 0 122, 0 134" stroke-width="6"/>
-    <path d="M0 96 C20 106, 32 118, 38 132" stroke-width="6"/>
+  <g transform="translate(20 8) scale(0.4)">
+    <path d="M8 8 L8 120" fill="none" stroke="#FFFBF5" stroke-width="16"/>
+    <path d="M8 8 Q53 8 53 35 Q53 62 8 62" fill="none" stroke="#FFFBF5" stroke-width="16"/>
+    <rect x="28" y="106" width="14" height="14" rx="3" fill="#E8663D"/>
   </g>
 </svg>

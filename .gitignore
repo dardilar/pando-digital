@@ -5,6 +5,8 @@ node_modules/
 dist/
 # archivos internos que Astro genera (tipos, caché)
 .astro/
+.agents/
+.claude/
 
 # variables de entorno (secretos — nunca al repo)
 .env
