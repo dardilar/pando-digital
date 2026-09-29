@@ -4,10 +4,9 @@
 import './ContactForm.css';
 import { useState, type ChangeEvent, type SubmitEvent } from 'react';
 
-// La clave llega desde .env (PUBLIC_ = Astro la expone al navegador; esta
-// clave de Web3Forms es pública por diseño: solo enruta mensajes a tu correo).
-// Si no hay clave, el formulario funciona en modo simulado.
-const ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY;
+// Ya no hay ninguna clave aquí: la isla solo habla con NUESTRO endpoint
+// (src/pages/api/contact.ts), y es el servidor quien usa la clave secreta
+// de Resend. Lo que corre en el navegador no puede guardar secretos.
 
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
@@ -50,37 +49,24 @@ export default function ContactForm() {
       return;
     }
 
-    // Honeypot: si el campo invisible viene lleno, fue un bot.
-    // Le fingimos éxito y no enviamos nada.
-    if (new FormData(e.currentTarget).get('botcheck')) {
-      setStatus('success');
-      return;
-    }
-
     setStatus('sending');
     try {
-      if (!ACCESS_KEY) {
-        // Modo simulado mientras no exista PUBLIC_WEB3FORMS_KEY en .env
-        await new Promise((resolve) => setTimeout(resolve, 800));
-        setStatus('success');
-        return;
-      }
-
-      const res = await fetch('https://api.web3forms.com/submit', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          access_key: ACCESS_KEY,
-          subject: `Nuevo mensaje de ${name} — pandodigital.co`,
           name,
           business,
           email,
           message,
+          // El honeypot ahora lo revisa el servidor (un bot podría saltarse
+          // este componente entero y llamar al endpoint directo).
+          botcheck: new FormData(e.currentTarget).get('botcheck') ?? '',
         }),
       });
-      const result = await res.json();
+      const result: { ok: boolean } = await res.json();
 
-      if (result.success) {
+      if (result.ok) {
         setStatus('success');
       } else {
         setStatus('idle');
