@@ -78,6 +78,17 @@ en local:
 - ✅ **Animación del FAQ** (2026-07-07): `interpolate-size: allow-keywords` +
   transición en `::details-content`, mejora progresiva (Firefox abre sin
   animar), desactivada bajo `prefers-reduced-motion`.
+- ✅ **Formulario con Resend** (2026-09-28): la isla llama a
+  `src/pages/api/contact.ts` (`prerender = false`, adaptador `@astrojs/vercel`,
+  única ruta de servidor). `RESEND_API_KEY` y `CONTACT_TO_EMAIL` vía
+  `astro:env` (server/secret), en `.env` y en Vercel (Prod + Preview). Envía
+  desde `hola@pandodigital.co` (dominio verificado en Resend; buzón en Zoho)
+  con `reply_to` al cliente. El Marketplace de Vercel tenía el plan free
+  deshabilitado → cuenta directa en resend.com. Web3Forms retirado
+  (`PUBLIC_WEB3FORMS_KEY` borrada de Vercel y `.env`). Checkpoint (por qué el error de
+  Resend va a `console.error` y no al navegador) respondido: "lo ve el
+  usuario" — correcto pero corto; se amplió a "cualquiera, incluido un
+  atacante" (no filtrar información interna en errores).
 - ⬜ **i18n inglés**. Astro i18n routing (`/en/`), extraer textos a
   diccionarios. Ojo: un sitio 100% estático no puede detectar el país en el
   servidor; opciones a decidir: idioma del navegador con aviso/redirect,
