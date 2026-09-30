@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Pando Digital">
   <rect width="64" height="64" rx="14" fill="#2F5D4F"/>
   <g transform="translate(20 8) scale(0.4)">
-    <path d="M8 8 L8 120" fill="none" stroke="#FFFBF5" stroke-width="16"/>
+    <path d="M8 0 L8 120" fill="none" stroke="#FFFBF5" stroke-width="16"/>
     <path d="M8 8 Q53 8 53 35 Q53 62 8 62" fill="none" stroke="#FFFBF5" stroke-width="16"/>
     <rect x="28" y="106" width="14" height="14" rx="3" fill="#E8663D"/>
   </g>
